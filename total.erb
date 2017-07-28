@@ -1,0 +1,24 @@
+
+Well, <%=name%> <%=num1%>, <%=num2%>, and <%=num3%> are your favorite numbers!
+
+I have to say, <%=name%>, you are interesting.
+
+You are <%=age%> years of age, have <%=haircolor%> hair, and <%=eyecolor%> eyes.
+
+Your choices are great, <%=fav_foods%> and <%=fav_drink%> cannot be beat!
+
+You should play <%=num1%>, <%=num2%>, and <%=num3%> in the lottery! 
+<form method = "post" action = "/total">
+	<input type = "hidden" name = "user_name" value = <%= name %>>
+	<input type = "hidden" name = "age" value = <%= age %>>
+	<input type = "hidden" name = "haircolor" value= <%= haircolor %>>
+	<input type = "hidden" name = "eyecolor" value = <%= eyecolor %>>
+	<input type = "hidden" name = "fav_foods" value = <%= fav_foods %>>
+	<input type = "hidden" name = "fav_drink" value = <%= fav_drink %>>
+	<input type = "hidden" name = "num1" value= <%= num1 %>>
+	<input type = "hidden" name = "num2" value = <%= num2 %>>
+	<input type = "hidden" name = "num3" value = <%= num3%>>
+	
+	
+	
+</form> 

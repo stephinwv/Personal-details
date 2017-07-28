@@ -1,2 +1,10 @@
-Hello <%=name%>
-<a href="/three_numbers"> desc </a>
+Hello, <%=name%> What is your age?
+
+<form method= "post" action ="/age">
+	<input type = "hidden" name = "user_name" value = <%=name%>>
+	<input type = "number" name = "age">
+	<input type = "submit">
+</form> 
+
+
+
