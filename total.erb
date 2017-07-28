@@ -8,6 +8,7 @@ You are <%=age%> years of age, have <%=haircolor%> hair, and <%=eyecolor%> eyes.
 Your choices are great, <%=fav_foods%> and <%=fav_drink%> cannot be beat!
 
 You should play <%=num1%>, <%=num2%>, and <%=num3%> in the lottery! 
+<%=total%> is the sum of your numbers, you should buy that many tickets!
 <form method = "post" action = "/total">
 	<input type = "hidden" name = "user_name" value = <%= name %>>
 	<input type = "hidden" name = "age" value = <%= age %>>
@@ -18,7 +19,7 @@ You should play <%=num1%>, <%=num2%>, and <%=num3%> in the lottery!
 	<input type = "hidden" name = "num1" value= <%= num1 %>>
 	<input type = "hidden" name = "num2" value = <%= num2 %>>
 	<input type = "hidden" name = "num3" value = <%= num3%>>
-	
+	<input type = "hidden" name = "total" value = <%=total%>>
 	
 	
 </form> 

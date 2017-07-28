@@ -1,4 +1,6 @@
 require "sinatra"
+require_relative "total.rb"
+
 get '/' do #Makes homepage
 	erb :index #homepage
 	
@@ -96,45 +98,43 @@ post '/three_numbers' do
 	num1 = params[:num1]
 	num2 = params[:num2]
 	num3 = params[:num3]
-	
-	redirect '/total?user_name=' + name + '&age=' + age + '&haircolor=' + haircolor + '&eyecolor=' + eyecolor + '&fav_foods=' + fav_foods + '&fav_drink=' + fav_drink + '&num1=' + num1 + '&num2='+ num2 + '&num3=' + num3
+	total = total(num1.to_i, num2.to_i, num3.to_i)
+	redirect '/total?user_name=' + name + '&age=' + age + '&haircolor=' + haircolor + '&eyecolor=' + eyecolor + '&fav_foods=' + fav_foods + '&fav_drink=' + fav_drink + '&num1=' + num1 + '&num2='+ num2 + '&num3=' + num3 + '&total=' + total
 end
 get '/total' do
-	require_relative "total.rb" 
+	
 	name = params[:user_name].capitalize
 	age = params[:age]	
 	haircolor = params[:haircolor]
 	eyecolor = params[:eyecolor]
 	fav_foods = params[:fav_foods]
 	fav_drink = params[:fav_drink]
-	num1 = params[:num1].to_i
-	num2 = params[:num2].to_i
-	num3 = params[:num3].to_i
-
-	erb :total, :locals => {:name=> name, :age=> age, :haircolor=> haircolor, :eyecolor => eyecolor, :fav_foods => fav_foods, :fav_drink=> fav_drink, :num1=> num1, :num2 => num2, :num3 => num3}	
+	num1 = params[:num1]
+	num2 = params[:num2]
+	num3 = params[:num3]
+	total = params[:total]
+	erb :total, :locals => {:name=> name, :age=> age, :haircolor=> haircolor, :eyecolor => eyecolor, :fav_foods => fav_foods, :fav_drink=> fav_drink, :num1=> num1, :num2 => num2, :num3 => num3, :total => total}	
 end
 post '/total' do
-	require_relative "total.rb"
-	puts "MADE IT TO POST TOTAL DO"
-	name = params[:user_name].capitalize
-	puts "name = #{name}"
-	age = params[:age]
-	puts "age = #{age}"
-	haircolor = params[:haircolor]
-	puts "haircolor = #{haircolor}"
-	eyecolor = params[:eyecolor]
-	puts "eyecolor = #{eyecolor}"
-	fav_foods = params[:fav_foods]
-	puts "fav_foods = #{fav_foods}"
-	num1 = params[:num1].to_i
-	puts "num1 = #{num1}"
-	num2 = params[:num2].to_i
-	puts "num2 = #{num2}"
-	num3 = params[:num3].to_i
-	puts "num3 = #{num3}"
-	
-	total = params[:total]
-	puts "total = #{total}"
-erb :total, :locals => {:name=> name, :age=> age, :haircolor=> haircolor, :eyecolor => eyecolor, :fav_foods => fav_foods, :fav_drink=> fav_drink, :num1=> num1, :num2 => num2, :num3 => num3, :total => total}	
-
+# 		puts "MADE IT TO POST TOTAL DO"
+# 	name = params[:user_name].capitalize
+# 	puts "name = #{name}"
+# 	age = params[:age]
+# 	puts "age = #{age}"
+# 	haircolor = params[:haircolor]
+# 	puts "haircolor = #{haircolor}"
+# 	eyecolor = params[:eyecolor]
+# 	puts "eyecolor = #{eyecolor}"
+# 	fav_foods = params[:fav_foods]
+# 	puts "fav_foods = #{fav_foods}"
+# 	num1 = params[:num1].to_i
+# 	puts "num1 = #{num1}"
+# 	num2 = params[:num2].to_i
+# 	puts "num2 = #{num2}"
+# 	num3 = params[:num3].to_i
+# 	puts "num3 = #{num3}"
+# 	total = total(num1, num2, num3)
+# 	total = params[:total]
+# 	puts "total = #{total}"
+# total
 end
