@@ -1,5 +1,7 @@
+#This is the file that gathers the information from the other files within all the folders included in this project.
 require "sinatra"
 require_relative "total.rb"
+#total.rb is the file that is included in order to define the method that will be used for the math.
 
 get '/' do #Makes homepage
 	erb :index #homepage
@@ -9,16 +11,18 @@ post '/name' do
 	name = params[:user_name].capitalize
 	#Naming form and sending back to be used as a paramater
 	redirect'/age?user_name='+name
-	#Asking if age exists, redirects and takes user_name with it. 
+	#Asking if age page exists, redirects and takes user_name with it. 
 end
 get '/age' do
 	name = params[:user_name].capitalize
 	erb :get_age, :locals=> {:name=> name}
+	# Tells you the erb file and what info you will get from it.
 end
 post '/age' do
 	age = params[:age]
 	name = params[:user_name].capitalize
 	redirect '/haircolor?user_name=' + name + '&age=' + age
+#Post will tell you what to "post" on this page, and then where to go after, and what info goes with it. In order to use the info later, it must be carried from page to page.
 end
 get '/haircolor' do
 	age = params[:age]
